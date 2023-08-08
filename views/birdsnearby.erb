@@ -1,0 +1,9 @@
+<h1> Showing Birds Near <%=@user_location%> </h2>
+
+<% @nearby_birds_array.each do |logged_bird|%>
+  <div>
+    <h4><%= logged_bird.fetch("comName")%> spotted at <%= logged_bird.fetch("locName")%><h4>
+    <p>Date/Time: <%= logged_bird.fetch("obsDt")%></p> 
+    <p>Number of Birds:</p>
+  </div>
+<%end%>
