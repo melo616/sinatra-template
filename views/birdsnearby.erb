@@ -1,11 +1,13 @@
-<h1> Showing Birds Near <%=@user_location%> </h2>
+<div class="container">
+  <h1> Showing Recent Bird Sightings Logged Near <%=@user_location%> </h2>
 
-<p><a href="/">Go home!</a></p>
+  <p><a href="/">Go home!</a></p>
 
-<% @nearby_birds_array.each do |logged_bird|%>
-  <div>
-    <h3><%= logged_bird.fetch("comName")%> spotted at <%= logged_bird.fetch("locName")%><h4>
-    <p>Date/Time: <%= logged_bird.fetch("obsDt")%></p> 
-    <p>Number of Birds:</p>
-  </div>
-<%end%>
+  <% @nearby_birds_array.each do |logged_bird|%>
+    <div class="box">
+      <h3><%= logged_bird.fetch("comName")%> spotted at <%= logged_bird.fetch("locName")%><h4>
+      <p>Date/Time: <%= logged_bird.fetch("obsDt")%></p> 
+      <p>Number of Birds:</p>
+    </div>
+  <%end%>
+</div>

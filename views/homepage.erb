@@ -1,7 +1,7 @@
-<div class="container">
-  <div>
+<div class="container home">
+  <div class="box">
     <h1>Curious about local birds?</h1>
-    <h3>Enter a location to learn about birds recently spotted in your area.</h3>
+    <h3>Enter a location to learn what birds were recently spotted in your area.</h3>
 
     <form action="/nearby_birds">
       <label for="user_location">Enter a location: </label>
@@ -10,7 +10,7 @@
     </form>
   </div>
 
-  <div>
+  <div class="box">
     <h1>Generate a random bird!</h1>
     <h2><%= @random_bird.fetch("name") %><h2>
     <img src="<%= @random_bird_image_src %>" alt="photo of randomly generated bird" height="200px">
