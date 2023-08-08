@@ -21,19 +21,6 @@ get("/") do
   erb(:homepage)
 end
 
-# ["images",
-#  "lengthMin",
-#  "lengthMax",
-#  "name",
-#  "wingspanMin",
-#  "id",
-#  "wingspanMax",
-#  "sciName",
-#  "region",
-#  "family",
-#  "order",
-#  "status"]
-
 get("/nearby_birds") do
   @user_location = params.fetch("user_location")
   user_location = @user_location.gsub(" ", "%20")
