@@ -1,11 +1,19 @@
-<h1>Curious about local birds?</h1>
-<h3>Enter a location to learn about birds recently spotted in your area.</h3>
+<div class="container">
+  <div>
+    <h1>Curious about local birds?</h1>
+    <h3>Enter a location to learn about birds recently spotted in your area.</h3>
 
-<form action="/nearby_birds">
-  <label for="user_location">Enter a location: </label>
-  <input type="text" id="user_location" name="user_location">
-  <button>Show me birds!</button>
-</form>
+    <form action="/nearby_birds">
+      <label for="user_location">Enter a location: </label>
+      <input type="text" id="user_location" name="user_location">
+      <button>Show me birds!</button>
+    </form>
+  </div>
 
-<h1>Generate a random bird!</h1>
-<a href="/">Show me a new bird!</a>
+  <div>
+    <h1>Generate a random bird!</h1>
+    <h2><%= @random_bird.fetch("name") %><h2>
+    <img src="<%= @random_bird_image_src %>" alt="photo of randomly generated bird" height="200px">
+    <p><a href="/">Show me a new bird!</a></p>
+  </div>
+</div>

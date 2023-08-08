@@ -4,11 +4,35 @@ require "http"
 require "json"
 
 ebird_key = ENV.fetch("EBIRD_KEY")
-gmaps_key = ENV.fetch("GMAPS_KEY")
+nuthatch_key = ENV.fetch("NUTHATCH_KEY")
 
 get("/") do
+  nuthatch_url = "https://nuthatch.lastelm.software/v2/birds?page=1&pageSize=50&hasImg=true&operator=AND"
+
+  request_headers_hash = {
+    "api-key" => "#{nuthatch_key}" 
+  }
+  raw_response = HTTP.get(nuthatch_url, headers: request_headers_hash).to_s
+  parsed_response = JSON.parse(raw_response)
+  random_bird_index = rand(0..49)
+  @random_bird = parsed_response.fetch("entities").at(random_bird_index)
+  random_bird_image_index = rand(0..(@random_bird.fetch("images").length-1))
+  pp @random_bird_image_src = @random_bird.fetch("images").at(random_bird_image_index)
   erb(:homepage)
 end
+
+# ["images",
+#  "lengthMin",
+#  "lengthMax",
+#  "name",
+#  "wingspanMin",
+#  "id",
+#  "wingspanMax",
+#  "sciName",
+#  "region",
+#  "family",
+#  "order",
+#  "status"]
 
 get("/nearby_birds") do
   @user_location = params.fetch("user_location")
