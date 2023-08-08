@@ -5,14 +5,15 @@
 
     <form action="/nearby_birds">
       <label for="user_location">Enter a location: </label>
-      <input type="text" id="user_location" name="user_location">
+      <input type="text" id="user_location" name="user_location" required=true>
       <button>Show me birds!</button>
     </form>
   </div>
 
   <div class="box">
     <h1>Generate a random bird!</h1>
-    <h2><%= @random_bird.fetch("name") %><h2>
+    <h3><%= @random_bird.fetch("name") %></h3>
+    <h4><i><%= @random_bird.fetch("sciName") %></i></h4>
     <img src="<%= @random_bird_image_src %>" alt="photo of randomly generated bird" height="200px">
     <p><a href="/">Show me a new bird!</a></p>
   </div>

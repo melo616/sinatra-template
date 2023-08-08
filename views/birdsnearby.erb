@@ -7,7 +7,12 @@
     <div class="box">
       <h3><%= logged_bird.fetch("comName")%> spotted at <%= logged_bird.fetch("locName")%><h4>
       <p>Date/Time: <%= logged_bird.fetch("obsDt")%></p> 
-      <p>Number of Birds:</p>
+      <%if logged_bird["howMany"]%>
+        <p>Number of Birds: <%= logged_bird.fetch("howMany").to_s%></p>
+      <%else%>
+        <p>Not reported</p>
+      <%end%>
+      <%pp logged_bird.keys%>
     </div>
   <%end%>
 </div>
